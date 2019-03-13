@@ -806,7 +806,7 @@ debugger_agent_parse_options (char *options)
 	agent_config.server = FALSE;
 	agent_config.defer = FALSE;
 	agent_config.address = NULL;
-
+	
 	//agent_config.log_level = 10;
 
 	args = g_strsplit (options, ",", -1);
@@ -10245,6 +10245,7 @@ debugger_thread (void *arg)
 			err = field_commands (command, p, end, &buf);
 			break;
 		case CMD_SET_TYPE:
+			DEBUG_PRINTF (1, "[dbg] Command Number %d \n", command);
 			err = type_commands (command, p, end, &buf);
 			break;
 		case CMD_SET_METHOD:
